@@ -1,0 +1,9 @@
+.f13-twitter-follow {
+    width: 150px;
+    margin: auto;
+}
+
+.f13-twitter-follow .twitter-follow-button {
+    padding: 0;
+    width: 100px;
+}
