@@ -18,7 +18,7 @@ class Profile
 
         $cache = get_transient( $cache_key );
         if ( $cache ) {
-            return $cache;
+            //return $cache;
         }
 
         $tweets_get = $tweets;
@@ -34,6 +34,10 @@ class Profile
         $assoc = true);
 
         //print('<pre>'.print_r($data, true).'</pre>');
+
+        if (array_key_exists('errors', $data)) {
+            return '<div style="text-align: center; margin: 0.5em 0; padding: 0.5em; background: #ffcccc; border: 1px solid #222;">'.$data['errors'][0]['message'].'</div>';
+        }
 
         $v = new \F13\Twitter\Views\Profile(array(
             'data' => $data,

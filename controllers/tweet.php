@@ -66,6 +66,10 @@ class Tweet
               ->performRequest(),
         $assoc = true);
 
+        if (array_key_exists('errors', $data)) {
+            return '<div style="text-align:center; background: #ffcccc; padding: 0.5em; margin: 0.5em 0; border: 1px solid #222;">'.$data['errors'][0]['message'].'</div>';
+        }
+
         $v = new \F13\Twitter\Views\Tweet(array(
             'data' => $data
         ));

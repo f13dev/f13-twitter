@@ -32,7 +32,9 @@ class Admin
             $v .= '<input type="hidden" name="action" value="update">';
             $v .= '<input type="hidden" id="_wpnonce" name="_wpnonce" value="'.wp_create_nonce('f13-twitter-group-options').'">';
             do_settings_sections( 'f13-twitter-group' );
-
+            $v .= '<p>';
+                $v.= 'For information, guidence and examples visit <a href="https://f13.dev/wordpress-plugins/wordpress-plugin-twitter/">F13.dev &gt;&gt; WordPress Plugins &gt;&gt; Twitter</a>.';
+            $v .= '</p>';
             $v .= '<table class="form-table">';
                 $v .= '<tr valign="top">';
                     $v .= '<th scope="row">Access Token:</th>';

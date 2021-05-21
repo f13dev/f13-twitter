@@ -46,6 +46,11 @@ class Profile_widget extends \WP_Widget
               ->performRequest(),
         $assoc = true);
 
+        if (array_key_exists('errors', $data)) {
+            echo '<div style="text-align: center; margin: 0.5em 0; padding: 0.5em; background: #ffcccc; border: 1px solid #222;">'.$data['errors'][0]['message'].'</div>';
+            return;
+        }
+
         $v = new \F13\Twitter\Views\Profile(array(
             'data' => $data,
             'tweets' => $tweets,
