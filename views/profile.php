@@ -14,8 +14,8 @@ class Profile
     {
         $v = '<div class="f13-twitter" style="max-width: 550px; border: 1px solid #ccc; border-radius: 10px; margin: auto;">';
             $v .= '<div class="f13-twitter-head" style="position:relative;">';
-                $v .= '<img src="' . str_replace('normal', '400x400', $this->data[0]['user']['profile_image_url_https']) . '" style="position: absolute; height: auto; max-width: 22%; border-radius: 60px; border: 4px solid white; margin-top: 22%; margin-left: 5%;" class="f13-twitter-profile-image;"/>';
-                $v .= '<img src="'.$this->data[0]['user']['profile_banner_url'].'" style="border-radius: 10px 10px 0 0;">';
+                $v .= '<img alt="@'.$this->data[0]['user']['screen_name'].' on Twitter" src="' . str_replace('normal', '400x400', $this->data[0]['user']['profile_image_url_https']) . '" style="position: absolute; height: auto; max-width: 22%; border-radius: 60px; border: 4px solid white; margin-top: 22%; margin-left: 5%;" class="f13-twitter-profile-image;"/>';
+                $v .= '<img alt="@'.$this->data[0]['user']['screen_name'].' Twitter banner" src="'.$this->data[0]['user']['profile_banner_url'].'" style="border-radius: 10px 10px 0 0; max-width: 100%;">';
             $v .= '</div>';
             $v .= '<div class="f13-twitter-body" style="position:relative">';
                 $v .= '<span style="font-size: 22px; margin-left: 30%; display: block;">'.$this->data[0]['user']['name'] .'</span>';
