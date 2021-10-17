@@ -25,9 +25,10 @@ class Tweet
 
         $cache_key = 'f13_latest_tweet_'.md5($user.'-'.$count.'-'.$cache);
 
-        $cache = get_transient( $cache_key );
-        if ( $cache ) {
-            return $cache;
+        $transient = get_transient( $cache_key );
+        if ( $transient ) {
+            echo '<script>console.log("Building tweet from transient: '.$cache_key.'");</script>';
+            return $transient;
         }
 
         $m = new \F13\Twitter\Models\Twitter_api($this->settings);
@@ -45,6 +46,7 @@ class Tweet
         $return = $v->tweet();
 
         set_transient($cache_key, $return, $cache);
+        echo '<script>console.log("Building tweet from API, setting transient: '.$cache_key.'");</script>';
 
         return $return;
     }

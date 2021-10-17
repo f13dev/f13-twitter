@@ -26,10 +26,11 @@ class Profile_widget extends \WP_Widget
 
     public function widget($args, $instance)
     {
-        $cache_key = 'f13_twitter_widget_'.serialize($instance);
+        $cache_key = 'f13_twitter_widget_'.sha1(serialize($instance));
 
         $cache = get_transient( $cache_key );
         if ( $cache ) {
+            echo '<script>console.log("Building twitter profile from transient: '.$cache_key.'");</script>';
             echo $cache;
             return;
         }
@@ -57,6 +58,9 @@ class Profile_widget extends \WP_Widget
         ));
 
         $return = $v->profile();
+        
+        set_transient($cache_key, $return, $this->cache);
+        echo '<script>console.log("Building twitter profile from API, setting transient: '.$cache_key.'");</script>';
 
         echo $return;
     }

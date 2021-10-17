@@ -8,10 +8,14 @@
     width: 100px;
 }
 
-iframe .r-y54riw {          
+iframe .r-y54riw {
     min-width: 0px !important;
 }
 
 .twitter-tweet iframe {
     max-width: 100% !important;
+}
+
+.f13-twitter, .f13-twitter-head img {
+    border-radius: 0 !important;
 }

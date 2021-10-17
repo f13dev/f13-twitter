@@ -68,7 +68,7 @@ class Control
     public function widget()
     {
         $cache = $this->_check_cache( null );
-        $c = new Profile_widget( $cache );
+        $c = new Profile_widget( '', $cache );
         register_widget($c);
     }
 }

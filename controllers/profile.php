@@ -16,9 +16,11 @@ class Profile
     {
         $cache_key = 'f13_twitter_profile_'.md5($user.'-'.$tweets.'-'.$cache);
 
-        $cache = get_transient( $cache_key );
-        if ( $cache ) {
-            //return $cache;
+        $transient = get_transient( $cache_key );
+        if ( $transient ) {
+            echo '<script>console.log("Building twitter profile shortcode from transient: '.$cache_key.'");</script>';
+            return $transient;
+            return;
         }
 
         $tweets_get = $tweets;
@@ -47,6 +49,7 @@ class Profile
         $return = $v->profile();
 
         set_transient($cache_key, $return, $cache);
+        echo '<script>console.log("Building twitter profile shortcode from API, setting transient: '.$cache_key.'");</script>';
 
         return $return;
     }
