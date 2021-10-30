@@ -19,3 +19,7 @@ iframe .r-y54riw {
 .f13-twitter, .f13-twitter-head img {
     border-radius: 0 !important;
 }
+
+.f13-twitter {
+    max-width: 570px;
+}
